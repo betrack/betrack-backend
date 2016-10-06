@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20161006205814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "transports", force: :cascade do |t|
+    t.integer  "number"
+    t.float    "current_lat"
+    t.float    "current_lon"
+    t.integer  "temperature"
+    t.datetime "temperature_date"
+    t.string   "identification"
+    t.string   "phone_number"
+    t.string   "driver"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
 end

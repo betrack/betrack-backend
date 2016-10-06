@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  current_lat: 1.5
+  current_lon: 1.5
+  temperature: 1
+  temperature_date: 2016-10-06 17:58:14
+  identification: MyString
+  phone_number: MyString
+  driver: MyString
+
+two:
+  number: 1
+  current_lat: 1.5
+  current_lon: 1.5
+  temperature: 1
+  temperature_date: 2016-10-06 17:58:14
+  identification: MyString
+  phone_number: MyString
+  driver: MyString
