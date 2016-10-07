@@ -40,7 +40,7 @@
   </head>
   <body>
 
-    <div class="navbar navbar-default navbar-static-top">
+    <div class="navbar navbar-default navbar-static-top navbar-inverse" style="margin-bottom:0;">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
@@ -50,26 +50,18 @@
         <a class="navbar-brand" href="#">BeerTracker</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Mapa", main_path  %></li>
-            <li><%= link_to "Transportes", transports_path  %></li>
+            <li class="<%= 'active' if controller.controller_name =='main' %>"><%= link_to "Mapa", main_path  %></li>
+            <li class="<%= 'active' if controller.controller_name == 'transports' %>"><%= link_to "Transportes", transports_path  %></li>
+            <li class="<%= 'active' if controller.controller_name == 'stores' %>"><%= link_to "Tiendas", stores_path  %></li>
             <li><%= link_to "Barriles", "/path3"  %></li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">  
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
-      </div><!--/row-->
-
-      <footer>
-        <p>&copy; BeerTracker 2016</p>
-      </footer>
-
+    <div class="full-container">
+      <%= bootstrap_flash %>
+      <%= yield %>
     </div> <!-- /container -->
 
   </body>

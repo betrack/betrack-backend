@@ -13,4 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require material
+//= require ripples
 //= require_tree .
+
+$(function() {
+  $.material.init();
+});

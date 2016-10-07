@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :stores
   resources :transports
   get 'main' => 'main#index'
   get 'active_transports' => 'main#active_transports'
