@@ -2,8 +2,10 @@
 // All this logic will automatically be available in application.js.
 
 $(function() {
-  var map = initMap();
-  getMarkersInfo(map);
+  if (document.getElementById('map')) {
+    var map = initMap();
+    getMarkersInfo(map);
+  }
 });
 
 var getMarkersInfo = function(map) {
@@ -24,6 +26,7 @@ var getMarkersInfo = function(map) {
 var setMarker = function(marker, map) {
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(marker.current_lat, marker.current_lon),
+    icon: 'marker.png',
     map: map,
   });
 };
