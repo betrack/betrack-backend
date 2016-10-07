@@ -61,6 +61,15 @@ class TransportsController < ApplicationController
     end
   end
 
+  # GET /active_transports.json
+  #
+  def active_transports
+    @transports = Transport.all
+    respond_to do |format|
+      format.json { render :json => { :transports => @transports } }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transport
