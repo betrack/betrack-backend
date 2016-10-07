@@ -1,0 +1,1 @@
+json.array! @barrel_statuses, partial: 'barrel_statuses/barrel_status', as: :barrel_status

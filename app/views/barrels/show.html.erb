@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @barrel.type %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @barrel.number %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @barrel.content %>
+</p>
+
+<p>
+  <strong>Type details:</strong>
+  <%= @barrel.type_details %>
+</p>
+
+<p>
+  <strong>Rnpa:</strong>
+  <%= @barrel.rnpa %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @barrel.description %>
+</p>
+
+<p>
+  <strong>Alcohol:</strong>
+  <%= @barrel.alcohol %>
+</p>
+
+<p>
+  <strong>Ibu:</strong>
+  <%= @barrel.ibu %>
+</p>
+
+<p>
+  <strong>Ingredients:</strong>
+  <%= @barrel.ingredients %>
+</p>
+
+<p>
+  <strong>Elaboration date:</strong>
+  <%= @barrel.elaboration_date %>
+</p>
+
+<p>
+  <strong>Expiration date:</strong>
+  <%= @barrel.expiration_date %>
+</p>
+
+<p>
+  <strong>Lot:</strong>
+  <%= @barrel.lot %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @barrel.comments %>
+</p>
+
+<%= link_to 'Edit', edit_barrel_path(@barrel) %> |
+<%= link_to 'Back', barrels_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Temperature:</strong>
+  <%= @barrel_status.temperature %>
+</p>
+
+<p>
+  <strong>Temperature tstmp:</strong>
+  <%= @barrel_status.temperature_tstmp %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @barrel_status.state %>
+</p>
+
+<%= link_to 'Edit', edit_barrel_status_path(@barrel_status) %> |
+<%= link_to 'Back', barrel_statuses_path %>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :destroys
+  resources :barrel_statuses
+  resources :barrels
   resources :stores
   resources :transports
   get 'main' => 'main#index'

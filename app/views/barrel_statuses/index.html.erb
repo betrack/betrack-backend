@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Barrel Statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Temperature</th>
+      <th>Temperature tstmp</th>
+      <th>State</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @barrel_statuses.each do |barrel_status| %>
+      <tr>
+        <td><%= barrel_status.temperature %></td>
+        <td><%= barrel_status.temperature_tstmp %></td>
+        <td><%= barrel_status.state %></td>
+        <td><%= link_to 'Show', barrel_status %></td>
+        <td><%= link_to 'Edit', edit_barrel_status_path(barrel_status) %></td>
+        <td><%= link_to 'Destroy', barrel_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Barrel Status', new_barrel_status_path %>

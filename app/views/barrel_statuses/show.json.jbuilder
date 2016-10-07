@@ -1,0 +1,1 @@
+json.partial! "barrel_statuses/barrel_status", barrel_status: @barrel_status

@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  number: 1
+  content: 1
+  type_details: MyText
+  rnpa: 1
+  description: MyText
+  alcohol: 1
+  ibu: 1
+  ingredients: MyString
+  elaboration_date: 2016-10-07
+  expiration_date: 2016-10-07
+  lot: 1
+  comments: MyText
+
+two:
+  type: 
+  number: 1
+  content: 1
+  type_details: MyText
+  rnpa: 1
+  description: MyText
+  alcohol: 1
+  ibu: 1
+  ingredients: MyString
+  elaboration_date: 2016-10-07
+  expiration_date: 2016-10-07
+  lot: 1
+  comments: MyText

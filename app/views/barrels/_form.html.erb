@@ -1,0 +1,82 @@
+<%= form_for(barrel) do |f| %>
+  <% if barrel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(barrel.errors.count, "error") %> prohibited this barrel from being saved:</h2>
+
+      <ul>
+      <% barrel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %>
+    <%= f.text_field :type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.number_field :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.number_field :content %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type_details %>
+    <%= f.text_area :type_details %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rnpa %>
+    <%= f.number_field :rnpa %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :alcohol %>
+    <%= f.number_field :alcohol %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ibu %>
+    <%= f.number_field :ibu %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ingredients %>
+    <%= f.text_field :ingredients %>
+  </div>
+
+  <div class="field">
+    <%= f.label :elaboration_date %>
+    <%= f.date_select :elaboration_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :expiration_date %>
+    <%= f.date_select :expiration_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lot %>
+    <%= f.number_field :lot %>
+  </div>
+
+  <div class="field">
+    <%= f.label :comments %>
+    <%= f.text_area :comments %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
