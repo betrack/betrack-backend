@@ -10,6 +10,7 @@ class TransportsController < ApplicationController
   # GET /transports/1
   # GET /transports/1.json
   def show
+    @barrels = @transport.barrels
   end
 
   # GET /transports/new

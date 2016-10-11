@@ -28,11 +28,15 @@ var getMarkersInfo = function(map) {
   });
 };
 
-var setMarker = function(marker, lat, lon, map, type) {
+var setMarker = function(markerInfo, lat, lon, map, type) {
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(lat, lon),
     icon: type == 'transport' ? 'pin_rosa.png' : 'pin_celeste.png',
     map: map
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    window.location. href = 'transports/' + markerInfo.id;
   });
 };
 
