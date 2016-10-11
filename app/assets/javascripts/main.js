@@ -10,24 +10,29 @@ $(function() {
 
 var getMarkersInfo = function(map) {
   $.ajax({
-    url: '/active_transports.json',
+    url: '/active_markers.json',
     type: 'GET',
     dataType: 'json',
     success: function(response) {
-      if (response.transports.length > 0) {
+      if (response.stores && response.stores.length > 0) {
+        response.stores.forEach(function(store) {
+          setMarker(store, store.lat, store.lon, map, 'store');
+        });
+      }
+      if (response.transports && response.transports.length > 0) {
         response.transports.forEach(function(transport) {
-          setMarker(transport, map);
+          setMarker(transport, transport.current_lat, transport.current_lon, map, 'transport');
         });
       }
     },
   });
 };
 
-var setMarker = function(marker, map) {
+var setMarker = function(marker, lat, lon, map, type) {
   var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(marker.current_lat, marker.current_lon),
-    icon: 'marker.png',
-    map: map,
+    position: new google.maps.LatLng(lat, lon),
+    icon: type == 'transport' ? 'pin_rosa.png' : 'pin_celeste.png',
+    map: map
   });
 };
 
