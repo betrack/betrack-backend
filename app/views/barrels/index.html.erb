@@ -1,30 +1,34 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Barrels</h1>
-
-<table>
+<%- model_class = Barrel -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Type</th>
-      <th>Number</th>
-      <th>Content</th>
-      <th>Type details</th>
-      <th>Rnpa</th>
-      <th>Description</th>
-      <th>Alcohol</th>
-      <th>Ibu</th>
-      <th>Ingredients</th>
-      <th>Elaboration date</th>
-      <th>Expiration date</th>
-      <th>Lot</th>
-      <th>Comments</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:type) %></th>
+      <th><%= model_class.human_attribute_name(:number) %></th>
+      <th><%= model_class.human_attribute_name(:content) %></th>
+      <th><%= model_class.human_attribute_name(:type_details) %></th>
+      <th><%= model_class.human_attribute_name(:rnpa) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:alcohol) %></th>
+      <th><%= model_class.human_attribute_name(:ibu) %></th>
+      <th><%= model_class.human_attribute_name(:ingredients) %></th>
+      <th><%= model_class.human_attribute_name(:elaboration_date) %></th>
+      <th><%= model_class.human_attribute_name(:expiration_date) %></th>
+      <th><%= model_class.human_attribute_name(:lot) %></th>
+      <th><%= model_class.human_attribute_name(:comments) %></th>
+      <th><%= model_class.human_attribute_name(:store_id) %></th>
+      <th><%= model_class.human_attribute_name(:transport_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @barrels.each do |barrel| %>
       <tr>
+        <td><%= link_to barrel.id, barrel_path(barrel) %></td>
         <td><%= barrel.type %></td>
         <td><%= barrel.number %></td>
         <td><%= barrel.content %></td>
@@ -38,14 +42,23 @@
         <td><%= barrel.expiration_date %></td>
         <td><%= barrel.lot %></td>
         <td><%= barrel.comments %></td>
-        <td><%= link_to 'Show', barrel %></td>
-        <td><%= link_to 'Edit', edit_barrel_path(barrel) %></td>
-        <td><%= link_to 'Destroy', barrel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= barrel.store_id %></td>
+        <td><%= barrel.transport_id %></td>
+        <td><%=l barrel.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_barrel_path(barrel), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      barrel_path(barrel),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Barrel', new_barrel_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_barrel_path,
+            :class => 'btn btn-primary' %>

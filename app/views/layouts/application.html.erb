@@ -57,24 +57,18 @@
           <li class="<%= 'active' if controller.controller_name =='main' %>"><%= link_to "Mapa", main_path  %></li>
           <li class="<%= 'active' if controller.controller_name == 'transports' %>"><%= link_to "Transportes", transports_path  %></li>
           <li class="<%= 'active' if controller.controller_name == 'stores' %>"><%= link_to "Tiendas", stores_path  %></li>
-          <li><%= link_to "Barriles", "/path3"  %></li>
+          <li class="<%= 'active' if controller.controller_name == 'barrels' %>"><%= link_to "Barriles", barrels_path  %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right navbar-collapse collapse">
-          <!--
-            <li>
-            <form class="navbar-form">
-            <input type="text" class="form-control" placeholder="Search...">
-            </form>
-            </li> -->
-            <li class="dropdown">
-              <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">
-                javier@betrack.com
-                <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="javascript:void(0)">Editar perfil</a></li>
-                <li><a href="javascript:void(0)">Cerrar sesión</a></li>
-              </ul>
-            </li>
+          <li class="dropdown">
+            <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">
+              javier@betrack.com
+              <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:void(0)">Editar perfil</a></li>
+              <li><a href="javascript:void(0)">Cerrar sesión</a></li>
+            </ul>
+          </li>
         </ul> 
       </div>
       </div>

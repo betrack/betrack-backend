@@ -1,82 +1,132 @@
-<%= form_for(barrel) do |f| %>
-  <% if barrel.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(barrel.errors.count, "error") %> prohibited this barrel from being saved:</h2>
+<%= form_for @barrel, :html => { :class => "form-horizontal barrel" } do |f| %>
 
-      <ul>
-      <% barrel.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @barrel.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@barrel.errors.count, "error") %> prohibited this barrel from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @barrel.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :type %>
-    <%= f.text_field :type %>
+  <div class="form-group">
+    <%= f.label :type, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :type, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:type) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :number, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :number, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:number) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :content, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:content) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :type_details, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :type_details, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:type_details) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :rnpa, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :rnpa, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:rnpa) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:description) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :alcohol, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :alcohol, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:alcohol) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ibu, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :ibu, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:ibu) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ingredients, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :ingredients, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:ingredients) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :elaboration_date, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :elaboration_date, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:elaboration_date) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :expiration_date, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :expiration_date, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:expiration_date) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :lot, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :lot, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:lot) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :comments, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :comments, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:comments) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :store_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :store_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:store_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :transport_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :transport_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:transport_id) %>
   </div>
 
-  <div class="field">
-    <%= f.label :number %>
-    <%= f.number_field :number %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                barrels_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.number_field :content %>
-  </div>
-
-  <div class="field">
-    <%= f.label :type_details %>
-    <%= f.text_area :type_details %>
-  </div>
-
-  <div class="field">
-    <%= f.label :rnpa %>
-    <%= f.number_field :rnpa %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :alcohol %>
-    <%= f.number_field :alcohol %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ibu %>
-    <%= f.number_field :ibu %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ingredients %>
-    <%= f.text_field :ingredients %>
-  </div>
-
-  <div class="field">
-    <%= f.label :elaboration_date %>
-    <%= f.date_select :elaboration_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :expiration_date %>
-    <%= f.date_select :expiration_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :lot %>
-    <%= f.number_field :lot %>
-  </div>
-
-  <div class="field">
-    <%= f.label :comments %>
-    <%= f.text_area :comments %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

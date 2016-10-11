@@ -1,69 +1,47 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Barrel -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Type:</strong>
-  <%= @barrel.type %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:type) %>:</strong></dt>
+  <dd><%= @barrel.type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:number) %>:</strong></dt>
+  <dd><%= @barrel.number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:content) %>:</strong></dt>
+  <dd><%= @barrel.content %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:type_details) %>:</strong></dt>
+  <dd><%= @barrel.type_details %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rnpa) %>:</strong></dt>
+  <dd><%= @barrel.rnpa %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @barrel.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alcohol) %>:</strong></dt>
+  <dd><%= @barrel.alcohol %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ibu) %>:</strong></dt>
+  <dd><%= @barrel.ibu %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ingredients) %>:</strong></dt>
+  <dd><%= @barrel.ingredients %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:elaboration_date) %>:</strong></dt>
+  <dd><%= @barrel.elaboration_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:expiration_date) %>:</strong></dt>
+  <dd><%= @barrel.expiration_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lot) %>:</strong></dt>
+  <dd><%= @barrel.lot %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:comments) %>:</strong></dt>
+  <dd><%= @barrel.comments %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:store_id) %>:</strong></dt>
+  <dd><%= @barrel.store_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:transport_id) %>:</strong></dt>
+  <dd><%= @barrel.transport_id %></dd>
+</dl>
 
-<p>
-  <strong>Number:</strong>
-  <%= @barrel.number %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @barrel.content %>
-</p>
-
-<p>
-  <strong>Type details:</strong>
-  <%= @barrel.type_details %>
-</p>
-
-<p>
-  <strong>Rnpa:</strong>
-  <%= @barrel.rnpa %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @barrel.description %>
-</p>
-
-<p>
-  <strong>Alcohol:</strong>
-  <%= @barrel.alcohol %>
-</p>
-
-<p>
-  <strong>Ibu:</strong>
-  <%= @barrel.ibu %>
-</p>
-
-<p>
-  <strong>Ingredients:</strong>
-  <%= @barrel.ingredients %>
-</p>
-
-<p>
-  <strong>Elaboration date:</strong>
-  <%= @barrel.elaboration_date %>
-</p>
-
-<p>
-  <strong>Expiration date:</strong>
-  <%= @barrel.expiration_date %>
-</p>
-
-<p>
-  <strong>Lot:</strong>
-  <%= @barrel.lot %>
-</p>
-
-<p>
-  <strong>Comments:</strong>
-  <%= @barrel.comments %>
-</p>
-
-<%= link_to 'Edit', edit_barrel_path(@barrel) %> |
-<%= link_to 'Back', barrels_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              barrels_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_barrel_path(@barrel), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              barrel_path(@barrel),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
