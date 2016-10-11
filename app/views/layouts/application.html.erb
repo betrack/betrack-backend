@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "BeerTracker" %></title>
     <%= csrf_meta_tags %>
-    <script src="//maps.google.com/maps/api/js?key=AIzaSyDVXsnruLa2MGAUXXYgkqFavKIDNPRG-pE"></script>
 
     <%= stylesheet_link_tag "application", :media => "all" %>
 
@@ -32,6 +31,7 @@
 
     <%= javascript_include_tag "application" %>
 
+    <script src="//maps.google.com/maps/api/js?key=AIzaSyDVXsnruLa2MGAUXXYgkqFavKIDNPRG-pE"></script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -40,28 +40,47 @@
   </head>
   <body>
 
-    <div class="navbar navbar-default navbar-static-top navbar-inverse" style="margin-bottom:0;">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">
-          <img class="logo" src="logo-stripped.png" alt="BeTrack" />
-        </a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li class="<%= 'active' if controller.controller_name =='main' %>"><%= link_to "Mapa", main_path  %></li>
-            <li class="<%= 'active' if controller.controller_name == 'transports' %>"><%= link_to "Transportes", transports_path  %></li>
-            <li class="<%= 'active' if controller.controller_name == 'stores' %>"><%= link_to "Tiendas", stores_path  %></li>
-            <li><%= link_to "Barriles", "/path3"  %></li>
-          </ul>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img class="logo" src="/logo-stripped.png" alt="BeTrack" />
+          </a>
         </div>
+        <ul class="nav navbar-nav navbar-collapse collapse">
+          <li class="<%= 'active' if controller.controller_name =='main' %>"><%= link_to "Mapa", main_path  %></li>
+          <li class="<%= 'active' if controller.controller_name == 'transports' %>"><%= link_to "Transportes", transports_path  %></li>
+          <li class="<%= 'active' if controller.controller_name == 'stores' %>"><%= link_to "Tiendas", stores_path  %></li>
+          <li><%= link_to "Barriles", "/path3"  %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right navbar-collapse collapse">
+          <!--
+            <li>
+            <form class="navbar-form">
+            <input type="text" class="form-control" placeholder="Search...">
+            </form>
+            </li> -->
+            <li class="dropdown">
+              <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">
+                javier@betrack.com
+                <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="javascript:void(0)">Editar perfil</a></li>
+                <li><a href="javascript:void(0)">Cerrar sesión</a></li>
+              </ul>
+            </li>
+        </ul> 
       </div>
-    </div>
+      </div>
+    </nav>
 
-    <div class="full-container">
+    <div class="container-full">
       <%= bootstrap_flash %>
       <%= yield %>
     </div> <!-- /container -->
