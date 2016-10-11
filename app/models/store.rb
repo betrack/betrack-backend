@@ -1,3 +1,3 @@
 class Store < ApplicationRecord
-  has_one :barrel
+  has_many :barrels
 end
