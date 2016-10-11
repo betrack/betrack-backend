@@ -16,3 +16,8 @@
  *= require bootstrap-material-design
  *= require ripples
  */
+
+.logo {
+  height:30px;
+}
+
