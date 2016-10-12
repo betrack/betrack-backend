@@ -5,7 +5,8 @@ class BarrelsController < ApplicationController
   # GET /barrels.json
   def index
     if params[:transport_id]
-      @barrels = Transport.find(params[:transport_id]).barrels
+      @transport = Transport.find(params[:transport_id])
+      @barrels = @transport.barrels
       render :all
     else
       @barrels = Barrel.all
