@@ -1,5 +1,6 @@
 class BarrelsController < ApplicationController
   before_action :set_barrel, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :except => [:update, :show]
 
   # GET /barrels
   # GET /barrels.json

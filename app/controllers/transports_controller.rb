@@ -1,5 +1,6 @@
 class TransportsController < ApplicationController
   before_action :set_transport, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /transports
   # GET /transports.json
