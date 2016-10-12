@@ -36,7 +36,7 @@ var setMarker = function(markerInfo, lat, lon, map, type) {
   });
 
   google.maps.event.addListener(marker, 'click', function() {
-    window.location. href = 'transports/' + markerInfo.id;
+    window.location. href = 'transports/' + markerInfo.id + '/barrels';
   });
 };
 

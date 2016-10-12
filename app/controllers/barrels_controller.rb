@@ -4,7 +4,13 @@ class BarrelsController < ApplicationController
   # GET /barrels
   # GET /barrels.json
   def index
-    @barrels = Barrel.all
+    if params[:transport_id]
+      @barrels = Transport.find(params[:transport_id]).barrels
+      render :all
+    else
+      @barrels = Barrel.all
+      render :index
+    end
   end
 
   # GET /barrels/1
