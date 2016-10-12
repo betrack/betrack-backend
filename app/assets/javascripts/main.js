@@ -5,8 +5,22 @@ $(function() {
   if (document.getElementById('map')) {
     var map = initMap();
     getMarkersInfo(map);
+    filter();
   }
 });
+
+var markers = [];
+
+var filter = function() {
+  $('#transport-checkbox, #store-checkbox').click(function() {
+    var checkbox = this;
+    markers.forEach(function(marker) {
+      if ($(checkbox).data('type') == marker.type) {
+        marker.setVisible($(checkbox).prop('checked') && marker.type == $(checkbox).data('type'));
+      }
+    });
+  });
+};
 
 var getMarkersInfo = function(map) {
   $.ajax({
@@ -32,9 +46,10 @@ var setMarker = function(markerInfo, lat, lon, map, type) {
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(lat, lon),
     icon: type == 'transport' ? 'pin_rosa.png' : 'pin_celeste.png',
-    map: map
+    map: map,
+    type: type
   });
-
+  markers.push(marker);
   google.maps.event.addListener(marker, 'click', function() {
     window.location. href = 'transports/' + markerInfo.id + '/barrels';
   });

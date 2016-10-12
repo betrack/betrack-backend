@@ -18,14 +18,18 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   background-color: #FFFFFF;
   position: static;
+  padding: 0 10px 5px 10px;
 }
 
 .info-row {
   font-size: 15px;
-  width:400px;
+  width:320px;
 }
 
 .info-row .form-group {
   margin-top:0;
-  padding: 4px 10px 4px 10px;
+}
+
+.filter {
+  padding-top:5px;
 }
