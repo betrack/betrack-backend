@@ -20,4 +20,35 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  miscellaneous:
+    barrel_quantity: 'cantidad de barriles'
+  models_attributes:
+    barrel:
+      type: 'tipo'
+      number: 'número'
+      content: 'contenido'
+      type_details: 'detalles tipo'
+      rnpa: 'rnpa'
+      description: 'descripción'
+      alcohol: 'alcohol'
+      ibu: 'ibu'
+      ingredients: 'ingredientes'
+      elaboration_date: 'fecha de elaboración'
+      expiration_date: 'fecha de expiración'
+      lot: 'lote'
+      comments: 'comentarios'
+      store: 'Cervecería/Bar'
+      transport: 'Camión'
+    barrel_status:
+      temperature: 'temperatura'
+      temperature_tstmp: 'timestamp'
+      state: 'estado'
+    transport:
+      number: 'número'
+      current_lat: 'latitud'
+      current_lon: 'longitud'
+      temperature: 'temperatura'
+      temperature_date: 'fecha'
+      identification: 'identification'
+      phone_number: 'número de teléfono'
+      driver: 'conductor'
