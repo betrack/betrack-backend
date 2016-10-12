@@ -50,9 +50,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">
-            <img class="logo" src="/logo-stripped.png" alt="BeTrack" />
-          </a>
+          <%= link_to image_tag('/logo-stripped.png', {:class => 'logo'} ), main_path, :class => 'navbar-brand' %>
         </div>
         <ul class="nav navbar-nav navbar-collapse collapse">
           <li class="<%= 'active' if controller.controller_name =='main' %>"><%= link_to "Mapa", main_path  %></li>

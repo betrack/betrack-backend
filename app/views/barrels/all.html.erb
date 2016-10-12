@@ -20,7 +20,7 @@
             <dt><strong><%= t('models_attributes.transport.current_lon').capitalize %>:</strong></dt>
             <dd><%= @transport.current_lon %></dd>
             <dt><strong><%= t('models_attributes.transport.temperature').capitalize %>:</strong></dt>
-            <dd><%= @transport.temperature %></dd>
+            <dd><%= @transport.temperature %> °C</dd>
             <dt><strong><%= t('models_attributes.transport.temperature_date').capitalize %>:</strong></dt>
             <dd><%= @transport.temperature_date %></dd>
             <dt><strong><%= t('models_attributes.transport.identification').capitalize %>:</strong></dt>
@@ -73,6 +73,8 @@
               <dd><%= barrel.store.try(:name) %></dd>
               <dt><strong class="to"><%= t('models_attributes.barrel.transport').capitalize %>:</strong></dt>
               <dd><%= barrel.transport.try(:number) %></dd>
+              <dt><strong class="to"><%= t('miscellaneous.actual_temperature').capitalize %>:</strong></dt>
+              <dd><%= barrel.last_temperature %> °C </dd>
             </dl>
           </div>
         </div>

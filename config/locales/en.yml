@@ -22,6 +22,7 @@
 en:
   miscellaneous:
     barrel_quantity: 'cantidad de barriles'
+    actual_temperature: 'temperatura actual'
   models_attributes:
     barrel:
       type: 'tipo'
@@ -49,6 +50,6 @@ en:
       current_lon: 'longitud'
       temperature: 'temperatura'
       temperature_date: 'fecha'
-      identification: 'identification'
+      identification: 'identificación'
       phone_number: 'número de teléfono'
       driver: 'conductor'
