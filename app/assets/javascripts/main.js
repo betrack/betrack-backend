@@ -55,7 +55,7 @@ var setMarker = function(markerInfo, lat, lon, map, type) {
     if (infoWindow) {
       infoWindow.close();
     }
-    var id = type == 'transport' ? 'transport-' : 'store';
+    var id = type == 'transport' ? 'transport-' : 'store-';
     console.log(id + markerInfo.id);
     infoWindow = new google.maps.InfoWindow({
       content: document.getElementById(id + markerInfo.id).innerHTML

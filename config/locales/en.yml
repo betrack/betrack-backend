@@ -53,3 +53,13 @@ en:
       identification: 'identificación'
       phone_number: 'número de teléfono'
       driver: 'conductor'
+    store:
+      lat: 'latitud'
+      lon: 'longitud'
+      name: 'nombre'
+      social_reason: 'razón social'
+      cuit: 'cuit'
+      email: 'email'
+      phone_number: 'número de teléfono'
+      last_heartbeat: 'última actualización'
+      type: 'tipo'

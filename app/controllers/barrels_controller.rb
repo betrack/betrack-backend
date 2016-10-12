@@ -8,7 +8,11 @@ class BarrelsController < ApplicationController
     if params[:transport_id]
       @transport = Transport.find(params[:transport_id])
       @barrels = @transport.barrels
-      render :all
+      render :all_for_transport
+    elsif params[:store_id]
+      @store = Store.find(params[:store_id])
+      @barrels = @store.barrels
+      render :all_for_store
     else
       @barrels = Barrel.all
       render :index

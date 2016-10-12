@@ -27,6 +27,43 @@
 </div>
 <div id="map"></div>
 
+<% @stores.each do |store| %>
+  <div class="infowindow-content container-fluid hidden">
+    <div class="row">
+      <div class="col-xs-12" 
+           id="store-<%= store.id %>">
+           <div class="info-row">
+             <h4> 
+               <strong> Cervecería <%= store.name %> </strong>
+             </h4>
+           </div>
+           <dl class="dl-horizontal">
+             <dt><strong><%= t('models_attributes.store.name').capitalize %>:</strong></dt>
+             <dd><%= store.name %></dd>
+             <dt><strong><%= t('models_attributes.store.lat').capitalize %>:</strong></dt>
+             <dd><%= store.lat %></dd>
+             <dt><strong><%= t('models_attributes.store.lon').capitalize %>:</strong></dt>
+             <dd><%= store.lon %></dd>
+             <dt><strong><%= t('models_attributes.store.social_reason').capitalize %>:</strong></dt>
+             <dd><%= store.social_reason %> </dd>
+             <dt><strong><%= t('models_attributes.store.cuit').capitalize %>:</strong></dt>
+             <dd><%= store.cuit %></dd>
+             <dt><strong><%= t('models_attributes.store.email').capitalize %>:</strong></dt>
+             <dd><%= store.email %></dd>
+             <dt><strong><%= t('models_attributes.store.phone_number').capitalize %>:</strong></dt>
+             <dd><%= store.phone_number %></dd>
+             <dt><strong><%= t('models_attributes.store.last_heartbeat').capitalize %>:</strong></dt>
+             <dd><%= store.last_heartbeat %></dd>
+             <dt><strong><%= t('models_attributes.store.type').capitalize %>:</strong></dt>
+             <dd><%= store.type %></dd>
+             <dt><strong><%= t('miscellaneous.barrel_quantity').capitalize %>:</strong></dt>
+             <dd><%= store.barrels.try(:count) %></dd>
+           </dl>
+           <%= link_to 'Ver barriles', store_barrels_path(store) , :class => 'btn btn-primary btn-xs btn-raised pull-right' %>
+      </div>
+    </div>
+  </div>
+<% end %>
 <% @transports.each do |transport| %>
   <div class="infowindow-content container-fluid hidden">
     <div class="row">

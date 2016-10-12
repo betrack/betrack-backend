@@ -1,10 +1,10 @@
 <div class="container-fluid">
-  <h3> Camión  </h3>
+  <h3> Cervecería  </h3>
   <div class="row">
     <div class="col-xs-12 col-lg-6 padded"> 
       <div class="row"> 
         <div class="col-xs-12 well">
-          <div id="map-data" data-lat=" <%= @transport.current_lat %> " data-lon=" <%= @transport.current_lon %> " data-type="transport" > </div>
+          <div id="map-data" data-lat=" <%= @store.lat %> " data-lon=" <%= @store.lon %> " data-type="store" > </div>
           <div id="map-small" style="width:100%;height:400px;"></div>
         </div>
       </div>
@@ -13,30 +13,32 @@
       <div class="row"> 
         <div class="col-xs-12 well">
           <dl class="dl-horizontal">
-            <dt><strong><%= t('models_attributes.transport.number').capitalize %>:</strong></dt>
-            <dd><%= @transport.number %></dd>
-            <dt><strong><%= t('models_attributes.transport.current_lat').capitalize %>:</strong></dt>
-            <dd><%= @transport.current_lat %></dd>
-            <dt><strong><%= t('models_attributes.transport.current_lon').capitalize %>:</strong></dt>
-            <dd><%= @transport.current_lon %></dd>
-            <dt><strong><%= t('models_attributes.transport.temperature').capitalize %>:</strong></dt>
-            <dd><%= @transport.temperature %> °C</dd>
-            <dt><strong><%= t('models_attributes.transport.temperature_date').capitalize %>:</strong></dt>
-            <dd><%= @transport.temperature_date %></dd>
-            <dt><strong><%= t('models_attributes.transport.identification').capitalize %>:</strong></dt>
-            <dd><%= @transport.identification %></dd>
-            <dt><strong><%= t('models_attributes.transport.phone_number').capitalize %>:</strong></dt>
-            <dd><%= @transport.phone_number %></dd>
-            <dt><strong><%= t('models_attributes.transport.driver').capitalize %>:</strong></dt>
-            <dd><%= @transport.driver %></dd>
+            <dt><strong><%= t('models_attributes.store.name').capitalize %>:</strong></dt>
+            <dd><%= @store.name %></dd>
+            <dt><strong><%= t('models_attributes.store.lat').capitalize %>:</strong></dt>
+            <dd><%= @store.lat %></dd>
+            <dt><strong><%= t('models_attributes.store.lon').capitalize %>:</strong></dt>
+            <dd><%= @store.lon %></dd>
+            <dt><strong><%= t('models_attributes.store.social_reason').capitalize %>:</strong></dt>
+            <dd><%= @store.social_reason %> </dd>
+            <dt><strong><%= t('models_attributes.store.cuit').capitalize %>:</strong></dt>
+            <dd><%= @store.cuit %></dd>
+            <dt><strong><%= t('models_attributes.store.email').capitalize %>:</strong></dt>
+            <dd><%= @store.email %></dd>
+            <dt><strong><%= t('models_attributes.store.phone_number').capitalize %>:</strong></dt>
+            <dd><%= @store.phone_number %></dd>
+            <dt><strong><%= t('models_attributes.store.last_heartbeat').capitalize %>:</strong></dt>
+            <dd><%= @store.last_heartbeat %></dd>
+            <dt><strong><%= t('models_attributes.store.type').capitalize %>:</strong></dt>
+            <dd><%= @store.type %></dd>
             <dt><strong><%= t('miscellaneous.barrel_quantity').capitalize %>:</strong></dt>
-            <dd><%= @transport.barrels.try(:count) %></dd>
+            <dd><%= @store.barrels.try(:count) %></dd>
           </dl>
         </div>
       </div>
     </div>
   </div>
-  <h3> Barriles  </h3>
+  <h3> Barriles </h3>
   <div class="row">
     <% @barrels.each do |barrel| %>
       <div class="col-md-10 col-md-offset-1 col-lg-4 col-lg-offset-0" style="padding:0 30px 0 30px;"> 
@@ -69,8 +71,8 @@
               <dd><%= barrel.lot %></dd>
               <dt><strong class="to"><%= t('models_attributes.barrel.comments').capitalize %>:</strong></dt>
               <dd><%= barrel.comments %></dd>
-              <dt><strong class="to"><%= t('models_attributes.barrel.transport').capitalize %>:</strong></dt>
-              <dd><%= barrel.transport.try(:number) %></dd>
+              <dt><strong class="to"><%= t('models_attributes.barrel.store').capitalize %>:</strong></dt>
+              <dd><%= barrel.store.try(:number) %></dd>
               <dt><strong class="to"><%= t('miscellaneous.actual_temperature').capitalize %>:</strong></dt>
               <dd><%= barrel.last_temperature %> °C </dd>
             </dl>
