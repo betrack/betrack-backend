@@ -64,6 +64,16 @@ html, body {
 
 .backgrounded {
   background:url(/login-background.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: white;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .login-title {
@@ -72,4 +82,8 @@ html, body {
 
 .login {
   padding-top:20px;
+}
+
+.alert {
+  margin-bottom:0;
 }
