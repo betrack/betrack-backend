@@ -45,7 +45,7 @@ var getMarkersInfo = function(map) {
 var setMarker = function(markerInfo, lat, lon, map, type) {
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(lat, lon),
-    icon: type == 'transport' ? 'pin_rosa.png' : 'pin_celeste.png',
+    icon: type == 'transport' ? 'pin-transporte.png' : 'pin-cerveceria.png',
     map: map,
     type: type
   });
