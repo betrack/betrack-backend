@@ -62,3 +62,14 @@ html, body {
   margin-top:0;
 }
 
+.backgrounded {
+  background:url(/login-background.png);
+}
+
+.login-title {
+  width:100%;
+}
+
+.login {
+  margin-top:20px;
+}
