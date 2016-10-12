@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'coffee-rails'
+gem 'devise'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
