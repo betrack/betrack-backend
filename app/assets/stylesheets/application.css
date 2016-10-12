@@ -39,3 +39,26 @@ html, body {
   margin:0 0 0 0;
 
 }
+.info-container {
+  position: absolute;
+  z-index: 10000; 
+  margin-left: 5px; 
+  margin-top: 10px;
+}
+
+.info {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  background-color: #FFFFFF;
+  position: static;
+  padding: 0 10px 5px 10px;
+}
+
+.info-row {
+  font-size: 15px;
+  width:320px;
+}
+
+.info-row .form-group {
+  margin-top:0;
+}
+
