@@ -26,3 +26,39 @@
   </div>
 </div>
 <div id="map"></div>
+
+<% @transports.each do |transport| %>
+  <div class="infowindow-content container-fluid hidden">
+    <div class="row">
+      <div class="col-xs-12" 
+           id="transport-<%= transport.id %>">
+           <div class="info-row">
+             <h4> 
+               <strong> Camión <%= transport.number %> </strong>
+             </h4>
+           </div>
+           <dl class="dl-horizontal">
+             <dt><strong><%= t('models_attributes.transport.number').capitalize %>:</strong></dt>
+             <dd><%= transport.number %></dd>
+             <dt><strong><%= t('models_attributes.transport.current_lat').capitalize %>:</strong></dt>
+             <dd><%= transport.current_lat %></dd>
+             <dt><strong><%= t('models_attributes.transport.current_lon').capitalize %>:</strong></dt>
+             <dd><%= transport.current_lon %></dd>
+             <dt><strong><%= t('models_attributes.transport.temperature').capitalize %>:</strong></dt>
+             <dd><%= transport.temperature %> °C</dd>
+             <dt><strong><%= t('models_attributes.transport.temperature_date').capitalize %>:</strong></dt>
+             <dd><%= transport.temperature_date %></dd>
+             <dt><strong><%= t('models_attributes.transport.identification').capitalize %>:</strong></dt>
+             <dd><%= transport.identification %></dd>
+             <dt><strong><%= t('models_attributes.transport.phone_number').capitalize %>:</strong></dt>
+             <dd><%= transport.phone_number %></dd>
+             <dt><strong><%= t('models_attributes.transport.driver').capitalize %>:</strong></dt>
+             <dd><%= transport.driver %></dd>
+             <dt><strong><%= t('miscellaneous.barrel_quantity').capitalize %>:</strong></dt>
+             <dd><%= transport.barrels.try(:count) %></dd>
+           </dl>
+           <%= link_to 'Ver barriles', transport_barrels_path(transport) , :class => 'btn btn-primary btn-xs btn-raised pull-right' %>
+      </div>
+    </div>
+  </div>
+<% end %>

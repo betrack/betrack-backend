@@ -2,6 +2,8 @@ class MainController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @transports = Transport.all
+    @stores = Store.all
   end
 
   def active_markers
