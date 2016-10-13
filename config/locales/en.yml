@@ -27,7 +27,7 @@ en:
     empty: 'vacío'
   models_attributes:
     barrel:
-      type: 'tipo'
+      barrel_type: 'tipo'
       number: 'número'
       content: 'contenido'
       type_details: 'detalles tipo'
@@ -64,4 +64,4 @@ en:
       email: 'email'
       phone_number: 'número de teléfono'
       last_heartbeat: 'última actualización'
-      type: 'tipo'
+      store_type: 'tipo'
