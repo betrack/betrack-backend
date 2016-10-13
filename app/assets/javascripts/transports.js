@@ -26,7 +26,7 @@ var initSmallMap = function(lat, lon) {
     zoom: 17,
     center: new google.maps.LatLng(lat, lon),
     mapTypeId: google.maps.MapTypeId.TERRAIN,
-    disableDefaultUI: true,
+    scrollwheel: false,
     styles: style
   };
 
