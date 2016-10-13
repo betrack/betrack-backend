@@ -25,17 +25,18 @@ class BarrelStatusesController < ApplicationController
   # POST /barrel_statuses
   # POST /barrel_statuses.json
   def create
-    @barrel_status = BarrelStatus.new(barrel_status_params)
-
-    respond_to do |format|
+    @barrel = Barrel.find(params[:barrel_id])
+    if @barrel
+      @barrel_status = @barrel.barrel_statuses.build(barrel_status_params)
       if @barrel_status.save
-        format.html { redirect_to @barrel_status, notice: 'Barrel status was successfully created.' }
-        format.json { render :show, status: :created, location: @barrel_status }
+        render :show, :status => :created
       else
-        format.html { render :new }
-        format.json { render json: @barrel_status.errors, status: :unprocessable_entity }
+        render :json => { :errors => @barrel_status.errors }, :status => :unprocessable_entity
       end
+    else
+      render :json => { :message => "No barrel found" }, :status => :not_found
     end
+
   end
 
   # PATCH/PUT /barrel_statuses/1
