@@ -22,6 +22,7 @@ class BarrelsController < ApplicationController
   # GET /barrels/1
   # GET /barrels/1.json
   def show
+    @owner = @barrel.transport || @barrel.store
   end
 
   # GET /barrels/new
