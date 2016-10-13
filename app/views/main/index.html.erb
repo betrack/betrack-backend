@@ -13,7 +13,7 @@
                id="transport-checkbox"
                data-type="transport"
                checked>
-        Camiones
+        Transportes
       </label>
       <label class="checkbox-inline">
         <input type="checkbox" 
@@ -38,8 +38,6 @@
              </h4>
            </div>
            <dl class="dl-horizontal">
-             <dt><strong><%= t('models_attributes.store.name').capitalize %>:</strong></dt>
-             <dd><%= store.name %></dd>
              <dt><strong><%= t('models_attributes.store.social_reason').capitalize %>:</strong></dt>
              <dd><%= store.social_reason %> </dd>
              <dt><strong><%= t('models_attributes.store.cuit').capitalize %>:</strong></dt>
@@ -50,8 +48,6 @@
              <dd><%= store.phone_number %></dd>
              <dt><strong><%= t('models_attributes.store.last_heartbeat').capitalize %>:</strong></dt>
              <dd><%= store.last_heartbeat %></dd>
-             <dt><strong><%= t('models_attributes.store.store_type').capitalize %>:</strong></dt>
-             <dd><%= store_type store.store_type %></dd>
              <dt><strong><%= t('miscellaneous.barrel_quantity').capitalize %>:</strong></dt>
              <dd><%= store.barrels.try(:count) %></dd>
            </dl>
@@ -67,7 +63,7 @@
            id="transport-<%= transport.id %>">
            <div class="info-row">
              <h4> 
-               <strong> Camión <%= transport.number %> </strong>
+               <strong> Transporte <%= transport.number %> </strong>
              </h4>
            </div>
            <dl class="dl-horizontal">
@@ -75,6 +71,8 @@
              <dd><%= transport.number %></dd>
              <dt><strong><%= t('models_attributes.transport.temperature').capitalize %>:</strong></dt>
              <dd><%= transport.temperature %> °C</dd>
+             <dt><strong><%= t('models_attributes.transport.temperature_date').capitalize %>:</strong></dt>
+             <dd><%= transport.temperature_date %> </dd>
              <dt><strong><%= t('models_attributes.transport.phone_number').capitalize %>:</strong></dt>
              <dd><%= transport.phone_number %></dd>
              <dt><strong><%= t('models_attributes.transport.driver').capitalize %>:</strong></dt>
