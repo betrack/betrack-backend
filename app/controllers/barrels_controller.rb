@@ -81,6 +81,6 @@ class BarrelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def barrel_params
-      params.require(:barrel).permit(:type, :number, :content, :type_details, :rnpa, :description, :alcohol, :ibu, :ingredients, :elaboration_date, :expiration_date, :lot, :comments)
+      params.require(:barrel).permit(:type, :number, :content, :type_details, :rnpa, :description, :alcohol, :ibu, :ingredients, :elaboration_date, :expiration_date, :lot, :comments, :store_id, :transport_id)
     end
 end
