@@ -1,5 +1,6 @@
 class BarrelStatusesController < ApplicationController
   before_action :set_barrel_status, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, :only => :create
 
   # GET /barrel_statuses
   # GET /barrel_statuses.json
