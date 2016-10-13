@@ -34,9 +34,22 @@ var initSmallMap = function(lat, lon) {
 };
 
 var setCurrentMarker = function(lat, lon, map, type) {
+  var icon;
+  switch (type) {
+    case 'transport':
+      icon = '/pin-transporte.png';
+      break;
+    case 'bar':
+      icon = '/pin-bar.png';
+      break;
+    default:
+      icon = '/pin-cerveceria.png';
+  }
+
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(lat, lon),
-    icon: type == 'transport' ? '/pin-transporte.png' : '/pin-cerveceria.png',
-    map: map,
+    icon: icon,
+    map: map
   });
+
 };

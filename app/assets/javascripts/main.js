@@ -47,7 +47,6 @@ var getMarkersInfo = function(map) {
 
 var setMarker = function(markerInfo, lat, lon, map, type) {
   var icon;
-  console.log(type)
   switch (type) {
     case 'transport':
       icon = 'pin-transporte.png';
