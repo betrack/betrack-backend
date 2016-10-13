@@ -22,4 +22,8 @@ module ApplicationHelper
     end
   end
 
+  def store_type type
+    type == 'brewery' ? 'Cervecería' : 'Bar'
+  end
+
 end
