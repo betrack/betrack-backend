@@ -15,9 +15,11 @@ var infoWindow;
 var filter = function() {
   $('#transport-checkbox, #store-checkbox').click(function() {
     var checkbox = this;
+
     markers.forEach(function(marker) {
-      if ($(checkbox).data('type') == marker.type) {
-        marker.setVisible($(checkbox).prop('checked') && marker.type == $(checkbox).data('type'));
+      var type = marker.type == 'transport' ? 'transport' : 'store'
+      if ($(checkbox).data('type') == type) {
+        marker.setVisible($(checkbox).prop('checked') && type == $(checkbox).data('type'));
       }
     });
   });
@@ -31,7 +33,7 @@ var getMarkersInfo = function(map) {
     success: function(response) {
       if (response.stores && response.stores.length > 0) {
         response.stores.forEach(function(store) {
-          setMarker(store, store.lat, store.lon, map, 'store');
+          setMarker(store, store.lat, store.lon, map, store.store_type);
         });
       }
       if (response.transports && response.transports.length > 0) {
@@ -44,13 +46,27 @@ var getMarkersInfo = function(map) {
 };
 
 var setMarker = function(markerInfo, lat, lon, map, type) {
+  var icon;
+  console.log(type)
+  switch (type) {
+    case 'transport':
+      icon = 'pin-transporte.png';
+      break;
+    case 'brewery':
+      icon = 'pin-cerveceria.png';
+      break;
+    default:
+      icon = 'pin-bar.png';
+  }
+
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(lat, lon),
-    icon: type == 'transport' ? 'pin-transporte.png' : 'pin-cerveceria.png',
+    icon: icon,
     map: map,
     type: type
   });
   markers.push(marker);
+
   google.maps.event.addListener(marker, 'click', function() {
     if (infoWindow) {
       infoWindow.close();

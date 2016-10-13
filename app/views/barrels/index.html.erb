@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:type) %></th>
+      <th><%= model_class.human_attribute_name(:barrel_type) %></th>
       <th><%= model_class.human_attribute_name(:number) %></th>
       <th><%= model_class.human_attribute_name(:content) %></th>
       <th><%= model_class.human_attribute_name(:type_details) %></th>
@@ -29,7 +29,7 @@
     <% @barrels.each do |barrel| %>
       <tr>
         <td><%= link_to barrel.id, barrel_path(barrel) %></td>
-        <td><%= barrel.type %></td>
+        <td><%= barrel.barrel_type %></td>
         <td><%= barrel.number %></td>
         <td><%= barrel.content %></td>
         <td><%= barrel.type_details %></td>

@@ -30,7 +30,7 @@
             <dt><strong><%= t('models_attributes.store.last_heartbeat').capitalize %>:</strong></dt>
             <dd><%= @store.last_heartbeat %></dd>
             <dt><strong><%= t('models_attributes.store.type').capitalize %>:</strong></dt>
-            <dd><%= @store.type %></dd>
+            <dd><%= @store.store_type %></dd>
             <dt><strong><%= t('miscellaneous.barrel_quantity').capitalize %>:</strong></dt>
             <dd><%= @store.barrels.try(:count) %></dd>
           </dl>

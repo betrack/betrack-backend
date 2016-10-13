@@ -24,8 +24,8 @@
         <dd><%= @store.phone_number %></dd>
         <dt><strong><%= model_class.human_attribute_name(:last_heartbeat) %>:</strong></dt>
         <dd><%= @store.last_heartbeat %></dd>
-        <dt><strong><%= model_class.human_attribute_name(:type) %>:</strong></dt>
-        <dd><%= @store.type %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:store_type) %>:</strong></dt>
+        <dd><%= @store.store_type %></dd>
       </dl>
 
       <%= link_to t('.back', :default => t("helpers.links.back")),

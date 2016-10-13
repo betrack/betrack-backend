@@ -30,7 +30,7 @@ class TransportsController < ApplicationController
 
     respond_to do |format|
       if @transport.save
-        format.html { redirect_to @transport, notice: 'Transport was successfully created.' }
+        format.html { redirect_to transports_path, notice: 'Transport was successfully created.' }
         format.json { render :show, status: :created, location: @transport }
       else
         format.html { render :new }

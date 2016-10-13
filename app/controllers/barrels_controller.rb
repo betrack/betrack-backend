@@ -37,6 +37,7 @@ class BarrelsController < ApplicationController
   # POST /barrels
   # POST /barrels.json
   def create
+    binding.pry
     @barrel = Barrel.new(barrel_params)
 
     respond_to do |format|
@@ -82,6 +83,6 @@ class BarrelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def barrel_params
-      params.require(:barrel).permit(:type, :number, :content, :type_details, :rnpa, :description, :alcohol, :ibu, :ingredients, :elaboration_date, :expiration_date, :lot, :comments, :store_id, :transport_id)
+      params.require(:barrel).permit(:barrel_type, :number, :content, :type_details, :rnpa, :description, :alcohol, :ibu, :ingredients, :elaboration_date, :expiration_date, :lot, :comments, :store_id, :transport_id)
     end
 end
