@@ -3,39 +3,57 @@
   <% @barrels.each do |barrel| %>
     <div class="col-md-10 col-md-offset-1 col-lg-4 col-lg-offset-0" style="padding:0 30px 0 30px;"> 
       <div class="row"> 
+        <div class="col-xs-6" style="padding:0 30px 0 15px;">
+          <div class="row">
+            <div class="col-xs-12 well" style="padding: 30px 10px 30px 10px;">
+              <span class="icon-thermometer-half" style="color:white;background-color:#81D4FA;padding:20px;font-size:30px;border-radius:100%;"></span>
+              <span style="font-size:30px;"> &nbsp;<%=barrel.last_temperature %> °C </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6" style="padding:0 15px 0 30px;">
+          <div class="row">
+            <div class="col-xs-12 well" style="padding: 30px 10px 30px 10px;">
+              <span class="icon-beer" style="color:white;background-color:#FFEE58;padding:20px;font-size:30px;border-radius:100%;"></span>
+              <span style="font-size:30px;"> &nbsp;<%=barrel.last_status %> </span>
+            </div>
+          </div>
+        </div>
         <div class="col-xs-12 well"> 
-          <dl class="dl-horizontal">
-            <dt><strong class="to"><%= t('models_attributes.barrel.type').capitalize %>:</strong></dt>
-            <dd><%= barrel.type %></dd>
-            <dt><strong class="to"><%= t('models_attributes.barrel.number').capitalize %>:</strong></dt>
-            <dd><%= barrel.number %></dd>
-            <dt><strong class="to"><%= t('models_attributes.barrel.content').capitalize %>:</strong></dt>
-            <dd><%= barrel.content %></dd>
-            <dt><strong class="to"><%= t('models_attributes.barrel.type_details').capitalize %>:</strong></dt>
-            <dd><%= barrel.type_details %></dd>
-            <dt><strong class="to"><%= t('models_attributes.barrel.rnpa').capitalize %>:</strong></dt>
-            <dd><%= barrel.rnpa %></dd>
-            <dt><strong class="to"><%= t('models_attributes.barrel.description').capitalize %>:</strong></dt>
-            <dd><%= barrel.description %></dd>
-            <dt><strong class="to"><%= t('models_attributes.barrel.alcohol').capitalize %>:</strong></dt>
-            <dd><%= barrel.alcohol %></dd>
-            <dt><strong class="to"><%= t('models_attributes.barrel.ibu').capitalize %>:</strong></dt>
-            <dd><%= barrel.ibu %></dd>
-            <dt><strong class="to"><%= t('models_attributes.barrel.ingredients').capitalize %>:</strong></dt>
-            <dd><%= barrel.ingredients %></dd>
-            <dt><strong class="to"><%= t('models_attributes.barrel.elaboration_date').capitalize %>:</strong></dt>
-            <dd><%= barrel.elaboration_date %></dd>
-            <dt><strong class="to"><%= t('models_attributes.barrel.expiration_date').capitalize %>:</strong></dt>
-            <dd><%= barrel.expiration_date %></dd>
-            <dt><strong class="to"><%= t('models_attributes.barrel.lot').capitalize %>:</strong></dt>
-            <dd><%= barrel.lot %></dd>
-            <dt><strong class="to"><%= t('models_attributes.barrel.comments').capitalize %>:</strong></dt>
-            <dd><%= barrel.comments %></dd>
-            <dt><strong class="to"><%= t('models_attributes.barrel.transport').capitalize %>:</strong></dt>
-            <dd><%= barrel.transport.try(:number) %></dd>
-            <dt><strong class="to"><%= t('miscellaneous.actual_temperature').capitalize %>:</strong></dt>
-            <dd><%= barrel.last_temperature %> °C </dd>
-          </dl>
+          <div class="row"> 
+            <div class="col-xs-12">
+              <dl class="dl-horizontal">
+                <dt><strong class="to"><%= t('models_attributes.barrel.type').capitalize %>:</strong></dt>
+                <dd><%= barrel.type %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.number').capitalize %>:</strong></dt>
+                <dd><%= barrel.number %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.content').capitalize %>:</strong></dt>
+                <dd><%= barrel.content %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.type_details').capitalize %>:</strong></dt>
+                <dd><%= barrel.type_details %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.rnpa').capitalize %>:</strong></dt>
+                <dd><%= barrel.rnpa %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.description').capitalize %>:</strong></dt>
+                <dd><%= barrel.description %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.alcohol').capitalize %>:</strong></dt>
+                <dd><%= barrel.alcohol %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.ibu').capitalize %>:</strong></dt>
+                <dd><%= barrel.ibu %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.ingredients').capitalize %>:</strong></dt>
+                <dd><%= barrel.ingredients %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.elaboration_date').capitalize %>:</strong></dt>
+                <dd><%= barrel.elaboration_date %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.expiration_date').capitalize %>:</strong></dt>
+                <dd><%= barrel.expiration_date %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.lot').capitalize %>:</strong></dt>
+                <dd><%= barrel.lot %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.comments').capitalize %>:</strong></dt>
+                <dd><%= barrel.comments %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.transport').capitalize %>:</strong></dt>
+                <dd><%= barrel.transport.try(:number) %></dd>
+              </dl>
+            </div>
+          </div>
         </div>
       </div>
 

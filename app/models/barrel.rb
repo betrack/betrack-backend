@@ -6,4 +6,8 @@ class Barrel < ApplicationRecord
   def last_temperature
     self.barrel_statuses.last.try(:temperature) || '-'
   end
+
+  def last_status
+    self.barrel_statuses.last.try(:status) || '-'
+  end
 end
