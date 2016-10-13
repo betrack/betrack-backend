@@ -23,6 +23,8 @@ en:
   miscellaneous:
     barrel_quantity: 'cantidad de barriles'
     actual_temperature: 'temperatura actual'
+    full: 'lleno'
+    empty: 'vacío'
   models_attributes:
     barrel:
       type: 'tipo'

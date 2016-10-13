@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <h3> Camión  </h3>
   <div class="row">
-    <div class="col-xs-12 col-lg-6 padded"> 
+    <div class="col-xs-12 col-lg-6 padded">
       <div class="row"> 
         <div class="col-xs-12 well">
           <div id="map-data" data-lat=" <%= @transport.current_lat %> " data-lon=" <%= @transport.current_lon %> " data-type="transport" > </div>
@@ -9,7 +9,25 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-12 col-lg-3 padded"> 
+    <div class="col-xs-12 col-lg-4 padded">
+      <div class="row"> 
+        <div class="col-xs-6" style="padding:0 30px 0 15px;">
+          <div class="row">
+            <div class="col-xs-12 well" style="padding: 30px 10px 30px 10px;">
+              <span class="icon-thermometer-half custom-icon <%= temperature_icon_color(@transport.temperature) %> "></span>
+              <span style="font-size:30px;"> &nbsp; <%= @transport.temperature %> &nbsp;°C </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6" style="padding:0 15px 0 30px;">
+          <div class="row">
+            <div class="col-xs-12 well" style="padding: 30px 10px 30px 10px;">
+              <span class="icon-bar custom-icon brown"></span>
+              <span style="font-size:30px;"> &nbsp; <%= @transport.barrels.try(:count) %> </span>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="row"> 
         <div class="col-xs-12 well">
           <dl class="dl-horizontal">
@@ -19,8 +37,6 @@
             <dd><%= @transport.current_lat %></dd>
             <dt><strong><%= t('models_attributes.transport.current_lon').capitalize %>:</strong></dt>
             <dd><%= @transport.current_lon %></dd>
-            <dt><strong><%= t('models_attributes.transport.temperature').capitalize %>:</strong></dt>
-            <dd><%= @transport.temperature %> °C</dd>
             <dt><strong><%= t('models_attributes.transport.temperature_date').capitalize %>:</strong></dt>
             <dd><%= @transport.temperature_date %></dd>
             <dt><strong><%= t('models_attributes.transport.identification').capitalize %>:</strong></dt>
@@ -29,8 +45,6 @@
             <dd><%= @transport.phone_number %></dd>
             <dt><strong><%= t('models_attributes.transport.driver').capitalize %>:</strong></dt>
             <dd><%= @transport.driver %></dd>
-            <dt><strong><%= t('miscellaneous.barrel_quantity').capitalize %>:</strong></dt>
-            <dd><%= @transport.barrels.try(:count) %></dd>
           </dl>
         </div>
       </div>
