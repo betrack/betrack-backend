@@ -37,7 +37,6 @@ class BarrelsController < ApplicationController
   # POST /barrels
   # POST /barrels.json
   def create
-    binding.pry
     @barrel = Barrel.new(barrel_params)
 
     respond_to do |format|
