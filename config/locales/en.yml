@@ -25,6 +25,8 @@ en:
     actual_temperature: 'temperatura actual'
     full: 'lleno'
     empty: 'vacío'
+    brewery: 'cervecería'
+    bar: 'bar'
   models_attributes:
     barrel:
       barrel_type: 'tipo'
