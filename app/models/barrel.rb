@@ -4,7 +4,7 @@ class Barrel < ApplicationRecord
   belongs_to :transport, :optional => true
 
   def last_state
-    self.barrel_statuses.where('state is not null').last.try(:state) || '-'
+    self.barrel_statuses.where('state is not null').last.try(:state)
   end
 
   def last_temperature
