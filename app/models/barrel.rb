@@ -4,7 +4,10 @@ class Barrel < ApplicationRecord
   belongs_to :transport, :optional => true
 
   def last_state
-    self.barrel_statuses.where('state is not null').last.try(:state)
+    self.barrel_statuses
+      .where('state is not null')
+      .last
+      .try(:state)
   end
 
   def last_temperature
@@ -12,10 +15,14 @@ class Barrel < ApplicationRecord
       .where('temperature is not null')
       .order('temperature_tstmp asc')
       .last
-      .try(:temperature) || '-'
+      .try(:temperature)
   end
 
   def last_temperatures
-    self.barrel_statuses.where('temperature is not null').order('temperature_tstmp asc').last(10)
+    self.barrel_statuses
+      .where('temperature is not null')
+      .order('temperature_tstmp asc')
+      .last(10)
   end
+
 end
