@@ -27,36 +27,18 @@
                 <dd><%= barrel.barrel_type %></dd>
                 <dt><strong class="to"><%= t('models_attributes.barrel.number').capitalize %>:</strong></dt>
                 <dd><%= barrel.number %></dd>
-                <dt><strong class="to"><%= t('models_attributes.barrel.content').capitalize %>:</strong></dt>
-                <dd><%= barrel.content %></dd>
-                <dt><strong class="to"><%= t('models_attributes.barrel.type_details').capitalize %>:</strong></dt>
-                <dd><%= barrel.type_details %></dd>
-                <dt><strong class="to"><%= t('models_attributes.barrel.rnpa').capitalize %>:</strong></dt>
-                <dd><%= barrel.rnpa %></dd>
-                <dt><strong class="to"><%= t('models_attributes.barrel.description').capitalize %>:</strong></dt>
-                <dd><%= barrel.description %></dd>
-                <dt><strong class="to"><%= t('models_attributes.barrel.alcohol').capitalize %>:</strong></dt>
-                <dd><%= barrel.alcohol %></dd>
-                <dt><strong class="to"><%= t('models_attributes.barrel.ibu').capitalize %>:</strong></dt>
-                <dd><%= barrel.ibu %></dd>
-                <dt><strong class="to"><%= t('models_attributes.barrel.ingredients').capitalize %>:</strong></dt>
-                <dd><%= barrel.ingredients %></dd>
-                <dt><strong class="to"><%= t('models_attributes.barrel.elaboration_date').capitalize %>:</strong></dt>
-                <dd><%= barrel.elaboration_date %></dd>
-                <dt><strong class="to"><%= t('models_attributes.barrel.expiration_date').capitalize %>:</strong></dt>
-                <dd><%= barrel.expiration_date %></dd>
-                <dt><strong class="to"><%= t('models_attributes.barrel.lot').capitalize %>:</strong></dt>
-                <dd><%= barrel.lot %></dd>
-                <dt><strong class="to"><%= t('models_attributes.barrel.comments').capitalize %>:</strong></dt>
-                <dd><%= barrel.comments %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.battery_level').capitalize %>:</strong></dt>
+                <dd><%= barrel.transport.try(:battery_level) %></dd>
                 <dt><strong class="to"><%= t('models_attributes.barrel.transport').capitalize %>:</strong></dt>
                 <dd><%= barrel.transport.try(:number) %></dd>
               </dl>
             </div>
+            <div class="col-xs-12">
+              <%= link_to 'Ver más', barrel_path(barrel), :class => 'btn btn-primary btn-raised btn-sm pull-right' %>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
   <% end %>
 </div>

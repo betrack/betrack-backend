@@ -41,7 +41,8 @@ en:
       lot: 'lote'
       comments: 'comentarios'
       store: 'Cervecería/Bar'
-      transport: 'Camión'
+      transport: 'Transporte'
+      battery_level: 'nivel de batería'
     barrel_status:
       temperature: 'temperatura'
       temperature_tstmp: 'timestamp'
