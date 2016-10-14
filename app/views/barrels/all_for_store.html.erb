@@ -11,6 +11,24 @@
     </div>
     <div class="col-xs-12 col-lg-3 padded"> 
       <div class="row"> 
+        <div class="col-xs-6" style="padding:0 30px 0 15px;">
+          <div class="row">
+            <div class="col-xs-12 well" style="padding: 30px 10px 30px 10px;">
+              <span class="icon-thermometer-half custom-icon <%= temperature_icon_color(@store.temperature) %> "></span>
+              <span style="font-size:20px;"> &nbsp; <%= @store.temperature %>°C </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6" style="padding:0 15px 0 30px;">
+          <div class="row">
+            <div class="col-xs-12 well" style="padding: 30px 10px 30px 10px;">
+              <span class="icon-pub custom-icon brown"></span>
+              <span style="font-size:20px;"> &nbsp; <%= @store.barrels.try(:count) %> </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-xs-12 well">
           <dl class="dl-horizontal">
             <dt><strong><%= t('models_attributes.store.name').capitalize %>:</strong></dt>
