@@ -20,6 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  buttons:
+    edit: 'editar'
+    delete: 'eliminar'
+    show: 'ver'
+    new: 'agregar'
+    back: 'volver'
   miscellaneous:
     barrel_quantity: 'cantidad de barriles'
     actual_temperature: 'temperatura actual'
@@ -27,6 +33,16 @@ en:
     empty: 'vacío'
     brewery: 'cervecería'
     bar: 'bar'
+    actions: 'acciones'
+  models_names:
+    barrel: 'barril'
+    barrels: 'barriles'
+    store: 'tienda'
+    stores: 'tiendas'
+    transport: 'transporte'
+    transports: 'transportes'
+    user: 'usuario'
+    users: 'usuarios'
   models_attributes:
     barrel:
       barrel_type: 'tipo'
@@ -45,6 +61,7 @@ en:
       store: 'Cervecería/Bar'
       transport: 'Transporte'
       battery_level: 'nivel de batería'
+      owner: 'Lugar actual'
     barrel_status:
       temperature: 'temperatura'
       temperature_tstmp: 'timestamp'

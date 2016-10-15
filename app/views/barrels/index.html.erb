@@ -1,64 +1,65 @@
-<%- model_class = Barrel -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:barrel_type) %></th>
-      <th><%= model_class.human_attribute_name(:number) %></th>
-      <th><%= model_class.human_attribute_name(:content) %></th>
-      <th><%= model_class.human_attribute_name(:type_details) %></th>
-      <th><%= model_class.human_attribute_name(:rnpa) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:alcohol) %></th>
-      <th><%= model_class.human_attribute_name(:ibu) %></th>
-      <th><%= model_class.human_attribute_name(:ingredients) %></th>
-      <th><%= model_class.human_attribute_name(:elaboration_date) %></th>
-      <th><%= model_class.human_attribute_name(:expiration_date) %></th>
-      <th><%= model_class.human_attribute_name(:lot) %></th>
-      <th><%= model_class.human_attribute_name(:comments) %></th>
-      <th><%= model_class.human_attribute_name(:store_id) %></th>
-      <th><%= model_class.human_attribute_name(:transport_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @barrels.each do |barrel| %>
-      <tr>
-        <td><%= link_to barrel.id, barrel_path(barrel) %></td>
-        <td><%= barrel.barrel_type %></td>
-        <td><%= barrel.number %></td>
-        <td><%= barrel.content %></td>
-        <td><%= barrel.type_details %></td>
-        <td><%= barrel.rnpa %></td>
-        <td><%= barrel.description %></td>
-        <td><%= barrel.alcohol %></td>
-        <td><%= barrel.ibu %></td>
-        <td><%= barrel.ingredients %></td>
-        <td><%= barrel.elaboration_date %></td>
-        <td><%= barrel.expiration_date %></td>
-        <td><%= barrel.lot %></td>
-        <td><%= barrel.comments %></td>
-        <td><%= barrel.store_id %></td>
-        <td><%= barrel.transport_id %></td>
-        <td><%=l barrel.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_barrel_path(barrel), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      barrel_path(barrel),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
+<div class="container-fluid">
+  <div class="row"> 
+    <div class="col-xs-12 col-md-10">
+      <div class="page-header">
+        <h1><%=t '.title', :default => t('models_names.barrels').capitalize %></h1>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-2">
+    <%= link_to new_barrel_path, :class => 'btn btn-primary btn-lg btn-raised pull-right btn-block' do %>
+      <i class="fa fa-plus"></i>
+      <span>  <%= "#{t('buttons.new')} #{t('models_names.barrel')}" %> </span>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t('models_attributes.barrel.barrel_type').capitalize %></th>
+          <th><%= t('models_attributes.barrel.number').capitalize %></th>
+          <th><%= t('models_attributes.barrel.content').capitalize %></th>
+          <th><%= t('models_attributes.barrel.alcohol').capitalize %></th>
+          <th><%= t('models_attributes.barrel.ingredients').capitalize %></th>
+          <th><%= t('models_attributes.barrel.elaboration_date').capitalize %></th>
+          <th><%= t('models_attributes.barrel.expiration_date').capitalize %></th>
+          <th><%= t('models_attributes.barrel.lot').capitalize %></th>
+          <th><%= t('models_attributes.barrel.battery_level').capitalize %></th>
+          <th><%= t('models_attributes.barrel.owner')%></th>
+          <th><%=t '.actions', :default => t("miscellaneous.actions").capitalize %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @barrels.each do |barrel| %>
+          <tr>
+            <td><%= barrel.barrel_type %></td>
+            <td><%= barrel.number %></td>
+            <td><%= barrel.content %></td>
+            <td><%= barrel.alcohol %></td>
+            <td><%= barrel.ingredients %></td>
+            <td><%= barrel.elaboration_date %></td>
+            <td><%= barrel.expiration_date %></td>
+            <td><%= barrel.lot %></td>
+            <td><%= barrel.battery_level %>%</td>
+            <td class="lead">
+              <i class=" <%= 'fa fa-truck' if barrel.owner_type == 'transport' %> "> </i> 
+              <i class=" <%= 'icon-pub' if barrel.owner_type == 'store' %> "> </i> 
+            </td>
+            <td>
+              <%= link_to t('.show', :default => t("buttons.show")),
+                barrel_path(barrel), :class => 'btn btn-default btn-xs btn-raised' %>
+              <%= link_to t('.edit', :default => t("buttons.edit")),
+                edit_barrel_path(barrel), :class => 'btn btn-default btn-xs btn-raised' %>
+              <%= link_to t('.destroy', :default => t("buttons.delete")),
+                barrel_path(barrel),
+                :method => :delete,
+                :data => { :confirm => t('.confirm', :default => t('buttons.delete', :default => 'Are you sure?')) },
+                :class => 'btn btn-xs btn-raised btn-danger' %>
+          </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_barrel_path,
-            :class => 'btn btn-primary' %>
+</div>
