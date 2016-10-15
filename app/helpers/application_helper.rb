@@ -26,4 +26,8 @@ module ApplicationHelper
     type == 'brewery' ? 'Cervecería' : 'Bar'
   end
 
+  def orphan_barrel
+    !(params[:store_id] || params[:transport_id])
+  end
+
 end

@@ -56,7 +56,7 @@
             <li class="<%= 'active' if controller.controller_name =='main' %>"><%= link_to "Mapa", main_path  %></li>
             <li class="<%= 'active' if controller.controller_name == 'transports' %>"><%= link_to "Transportes", transports_path  %></li>
             <li class="<%= 'active' if controller.controller_name == 'stores' %>"><%= link_to "Tiendas", stores_path  %></li>
-            <li class="<%= 'active' if controller.controller_name == 'barrels' %>"><%= link_to "Barriles", barrels_path  %></li>
+            <li class="<%= 'active' if (controller.controller_name == 'barrels' && orphan_barrel) %>"><%= link_to "Barriles", barrels_path  %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right navbar-collapse collapse">
             <li class="dropdown">
