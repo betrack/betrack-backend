@@ -14,6 +14,7 @@ gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'coffee-rails'
 gem 'devise'
+gem 'chartjs-ror'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

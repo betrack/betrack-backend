@@ -15,6 +15,7 @@
 //= require twitter/bootstrap
 //= require material
 //= require ripples
+//= require Chart.bundle.min
 //= require_tree .
 
 $(function() {
