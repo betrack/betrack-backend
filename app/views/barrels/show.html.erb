@@ -1,47 +1,72 @@
-<%- model_class = Barrel -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+<div class="container-fluid">
+  <div class="col-xs-12 <%=  params[:source] ? 'col-md-10' : 'col-md-6' %>"> 
+    <div class="page-header">
+      <h1><%=t '.title', :default => t('models_names.barrel').capitalize %></h1>
+    </div>
+  </div>
+  <div class="col-xs-12 <%=  params[:source] ? 'col-md-2' : 'col-md-6' %>"> 
+    <% if params[:source]  %>
+      <%= link_to params[:source], :class => 'btn btn-raised btn-lg btn-primary pull-right btn-block' do %>
+        <i class="fa fa-arrow-left"> </i>
+        <span> Volver </span>
+      <% end %>
+    <% else %>
+      <div class="pull-right">
+        <%= link_to t('.back', :default => t("buttons.back")),
+          barrels_path, :class => 'btn btn-default btn-raised'  %>
+        <%= link_to t('.edit', :default => t("buttons.edit")),
+          edit_barrel_path(@barrel), :class => 'btn btn-default btn-raised' %>
+        <%= link_to t('.destroy', :default => t("buttons.delete")),
+          barrel_path(@barrel),
+          :method => 'delete',
+          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+          :class => 'btn btn-danger btn-raised' %>
+    </div>
+  <% end %>
+  </div>
+  <div class="col-xs-12 well"> 
+    <div class="row">
+      <div class="col-xs-12 col-md-5"> 
+        <dl class="dl-horizontal">
+          <dt><strong><%= t('models_attributes.barrel.barrel_type').capitalize %>:</strong></dt>
+          <dd><%= @barrel.barrel_type %></dd>
+          <dt><strong><%= t('models_attributes.barrel.number').capitalize %>:</strong></dt>
+          <dd><%= @barrel.number %></dd>
+          <dt><strong><%= t('models_attributes.barrel.content').capitalize %>:</strong></dt>
+          <dd><%= @barrel.content %></dd>
+          <dt><strong><%= t('models_attributes.barrel.type_details').capitalize %>:</strong></dt>
+          <dd><%= @barrel.type_details %></dd>
+          <dt><strong><%= t('models_attributes.barrel.rnpa').capitalize %>:</strong></dt>
+          <dd><%= @barrel.rnpa %></dd>
+          <dt><strong><%= t('models_attributes.barrel.description').capitalize %>:</strong></dt>
+          <dd><%= @barrel.description %></dd>
+          <dt><strong><%= t('models_attributes.barrel.alcohol').capitalize %>:</strong></dt>
+          <dd><%= @barrel.alcohol %></dd>
+          <dt><strong><%= t('models_attributes.barrel.ibu').capitalize %>:</strong></dt>
+          <dd><%= @barrel.ibu %></dd>
+          <dt><strong><%= t('models_attributes.barrel.ingredients').capitalize %>:</strong></dt>
+          <dd><%= @barrel.ingredients %></dd>
+          <dt><strong><%= t('models_attributes.barrel.elaboration_date').capitalize %>:</strong></dt>
+          <dd><%= @barrel.elaboration_date %></dd>
+          <dt><strong><%= t('models_attributes.barrel.expiration_date').capitalize %>:</strong></dt>
+          <dd><%= @barrel.expiration_date %></dd>
+          <dt><strong><%= t('models_attributes.barrel.lot').capitalize %>:</strong></dt>
+          <dd><%= @barrel.lot %></dd>
+          <dt><strong><%= t('models_attributes.barrel.comments').capitalize %>:</strong></dt>
+          <dd><%= @barrel.comments %></dd>
+          <dt><strong><%= t('models_attributes.barrel.owner').capitalize %>:</strong></dt>
+          <dd class="lead">
+          <i class=" <%= 'fa fa-truck' if @barrel.owner_type == 'transport' %> "> </i> 
+          <i class=" <%= 'icon-pub' if @barrel.owner_type == 'store' %> "> </i> 
+          </dd>
+        </dl>
+      </div>
+      <div class="col-xs-12 col-md-7 "> 
+        <%= line_chart @data, { :class => "foo", :height => 180}%>
+      </div>
+
+    </div>
+  </div>
+
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:barrel_type) %>:</strong></dt>
-  <dd><%= @barrel.barrel_type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:number) %>:</strong></dt>
-  <dd><%= @barrel.number %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:content) %>:</strong></dt>
-  <dd><%= @barrel.content %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:type_details) %>:</strong></dt>
-  <dd><%= @barrel.type_details %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:rnpa) %>:</strong></dt>
-  <dd><%= @barrel.rnpa %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @barrel.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:alcohol) %>:</strong></dt>
-  <dd><%= @barrel.alcohol %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ibu) %>:</strong></dt>
-  <dd><%= @barrel.ibu %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ingredients) %>:</strong></dt>
-  <dd><%= @barrel.ingredients %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:elaboration_date) %>:</strong></dt>
-  <dd><%= @barrel.elaboration_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:expiration_date) %>:</strong></dt>
-  <dd><%= @barrel.expiration_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:lot) %>:</strong></dt>
-  <dd><%= @barrel.lot %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:comments) %>:</strong></dt>
-  <dd><%= @barrel.comments %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:store_id) %>:</strong></dt>
-  <dd><%= @barrel.store_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:transport_id) %>:</strong></dt>
-  <dd><%= @barrel.transport_id %></dd>
-</dl>
-
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              barrels_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_barrel_path(@barrel), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              barrel_path(@barrel),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
