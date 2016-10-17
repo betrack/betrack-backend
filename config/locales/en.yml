@@ -76,6 +76,7 @@ en:
       phone_number: 'número de teléfono'
       driver: 'conductor'
     store:
+      address: 'dirección'
       lat: 'latitud'
       lon: 'longitud'
       name: 'nombre'
