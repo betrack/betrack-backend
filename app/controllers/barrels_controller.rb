@@ -14,7 +14,7 @@ class BarrelsController < ApplicationController
       end
       barrel_status = barrel.barrel_statuses.build(barrel_status_params)
       barrel_status.created_by_type = new_owner.class.name
-      barrel_status.created_by_id = new_owner.id
+      barrel_status.created_by_name = new_owner.id
       if barrel.save
         render :json => { :message => 'New status created successfully' }, :status => :created
       else
@@ -121,7 +121,7 @@ class BarrelsController < ApplicationController
   end
 
   def barrel_status_params
-    params.require(:barrel_status).permit(:temperature, :temperature_tstmp, :state)
+    params.require(:barrel_status).permit(:temperature, :temperature_tstmp, :state, :battery_level)
   end
 
 end
