@@ -62,6 +62,7 @@ en:
       transport: 'Transporte'
       battery_level: 'nivel de batería'
       owner: 'Lugar actual'
+      mac_adddress: 'mac address'
     barrel_status:
       temperature: 'temperatura'
       temperature_tstmp: 'timestamp'
@@ -75,6 +76,7 @@ en:
       identification: 'identificación'
       phone_number: 'número de teléfono'
       driver: 'conductor'
+      mac_address: 'mac address'
     store:
       address: 'dirección'
       lat: 'latitud'
@@ -86,3 +88,4 @@ en:
       phone_number: 'número de teléfono'
       last_heartbeat: 'Última actualización'
       store_type: 'tipo'
+      mac_address: 'mac address'
