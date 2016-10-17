@@ -26,6 +26,9 @@ en:
     show: 'ver'
     new: 'agregar'
     back: 'volver'
+    cancel: 'cancelar'
+    create: 'crear'
+    update: 'actualizar'
   miscellaneous:
     barrel_quantity: 'cantidad de barriles'
     actual_temperature: 'temperatura actual'

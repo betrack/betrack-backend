@@ -16,63 +16,70 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :lat, :class => 'control-label col-lg-2' %>
+    <%= f.label :lat, t('models_attributes.store.lat').capitalize,  :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :lat, :class => 'form-control' %>
     </div>
     <%=f.error_span(:lat) %>
   </div>
   <div class="form-group">
-    <%= f.label :lon, :class => 'control-label col-lg-2' %>
+    <%= f.label :lon, t('models_attributes.store.lon').capitalize, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :lon, :class => 'form-control' %>
     </div>
     <%=f.error_span(:lon) %>
   </div>
   <div class="form-group">
-    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <%= f.label :address, t('models_attributes.store.address').capitalize, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :address, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:lat) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, t('models_attributes.store.name').capitalize, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :name, :class => 'form-control' %>
     </div>
     <%=f.error_span(:name) %>
   </div>
   <div class="form-group">
-    <%= f.label :social_reason, :class => 'control-label col-lg-2' %>
+    <%= f.label :social_reason, t('models_attributes.store.social_reason').capitalize, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :social_reason, :class => 'form-control' %>
     </div>
     <%=f.error_span(:social_reason) %>
   </div>
   <div class="form-group">
-    <%= f.label :cuit, :class => 'control-label col-lg-2' %>
+    <%= f.label :cuit, t('models_attributes.store.cuit').capitalize, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :cuit, :class => 'form-control' %>
     </div>
     <%=f.error_span(:cuit) %>
   </div>
   <div class="form-group">
-    <%= f.label :email, :class => 'control-label col-lg-2' %>
+    <%= f.label :email, t('models_attributes.store.email').capitalize, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :email, :class => 'form-control' %>
     </div>
     <%=f.error_span(:email) %>
   </div>
   <div class="form-group">
-    <%= f.label :phone_number, :class => 'control-label col-lg-2' %>
+    <%= f.label :phone_number, t('models_attributes.store.phone_number').capitalize, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :phone_number, :class => 'form-control' %>
     </div>
     <%=f.error_span(:phone_number) %>
   </div>
   <div class="form-group">
-    <%= f.label :last_heartbeat, :class => 'control-label col-lg-2' %>
+    <%= f.label :last_heartbeat, t('models_attributes.store.last_heartbeat').capitalize, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :last_heartbeat, :class => 'form-control' %>
     </div>
     <%=f.error_span(:last_heartbeat) %>
   </div>
   <div class="form-group">
-    <%= f.label :store_type, :class => 'control-label col-lg-2' %>
+    <%= f.label :store_type, t('models_attributes.store.store_type').capitalize, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.select :store_type, [['Bar', 'bar'], ['Cervecería', 'brewery']], {}, :class => 'form-control'  %>
     </div>
@@ -81,8 +88,12 @@
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+      <% if controller.action_name == 'new' %>
+        <%= f.submit "#{t('buttons.create')} #{t('models_names.store')}", :class => 'btn btn-primary btn-raised' %>
+      <% else %>
+        <%= f.submit "#{t('buttons.update')} #{t('models_names.store')}", :class => 'btn btn-primary btn-raised' %>
+      <% end %>
+      <%= link_to t('.cancel', :default => t("buttons.cancel")),
                 stores_path, :class => 'btn btn-default' %>
     </div>
   </div>
