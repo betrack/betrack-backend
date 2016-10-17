@@ -52,7 +52,7 @@ class BarrelsController < ApplicationController
           label: "Temperatura",
           backgroundColor: "#80CBC4",
           borderColor: "#4DB6AC",
-          data: @barrel.last_temperatures.map{ |k| { :y => k.temperature, :x => k.temperature_tstmp} }
+          data: @barrel.last_temperatures.map{ |k| { :y => k.temperature, :x => k.temperature_tstmp } }
         }
       ]
     }
