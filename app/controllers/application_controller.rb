@@ -4,16 +4,21 @@ class ApplicationController < ActionController::Base
 
   def update_owner
     owner = Transport.find_by_mac_address(params[:mac_address]) || Store.find_by_mac_address(params[:mac_address])
-    binding.pry
     if owner
       if owner.class.name == 'Transport'
-        if owner.update(transport_params)
+        owner.temperature = owner_params[:temperature]
+        owner.current_lon = owner_params[:current_lon]
+        owner.current_lat = owner_params[:current_lat]
+        owner.temperature_date = owner_params[:temperature_date]
+        if owner.save
           render :json => { :message => "Transport updated successfully" }, :status => :ok
         else
           render :json => { :message => "Transport could not be updated", :errors => owner.errors }, :status => :unprocessable_entity
         end
       else
-        if owner.update(store_params)
+        owner.temperature = owner_params[:temperature]
+        owner.last_heartbeat = owner_params[:temperature_date]
+        if owner.save
           render :json => { :message => "Store updated successfully" }, :status => :ok
         else
           render :json => { :message => "Store could not be updated", :errors => owner.errors }, :status => :unprocessable_entity
@@ -24,11 +29,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def transport_params
-    params.require(:owner).permit(:current_lat, :current_lon, :temperature, :temperature_date)
-  end
-
-  def store_params
-    params.require(:owner).permit(:lat, :lon, :temperature, :last_heartbeat)
+  def owner_params
+    params.require(:owner).permit(:lat, :lon, :temperature, :temperature_date)
   end
 end

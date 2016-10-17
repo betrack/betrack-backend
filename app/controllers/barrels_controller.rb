@@ -7,12 +7,12 @@ class BarrelsController < ApplicationController
   def update_status
     barrel = Barrel.find_by_mac_address(params[:barrel_mac_address])
     if barrel
-      current_owner = barrel.transport || @barrel.store
+      current_owner = barrel.transport || barrel.store
       new_owner = Transport.find_by_mac_address(params[:owner_mac_address]) || Store.find_by_mac_address(params[:owner_mac_address])
       if current_owner != new_owner && !new_owner.nil?
         barrel.update_attributes("#{new_owner.class.name.downcase}_id".to_sym => new_owner.id)
       end
-      @barrel.barrel_statuses.build(barrel_status_params)
+      barrel.barrel_statuses.build(barrel_status_params)
       if barrel.save
         render :json => { :message => 'New status created successfully' }, :status => :created
       else
