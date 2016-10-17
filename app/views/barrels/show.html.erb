@@ -55,9 +55,12 @@
           <dt><strong><%= t('models_attributes.barrel.comments').capitalize %>:</strong></dt>
           <dd><%= @barrel.comments %></dd>
           <dt><strong><%= t('models_attributes.barrel.owner').capitalize %>:</strong></dt>
-          <dd class="lead">
-          <i class=" <%= 'fa fa-truck' if @barrel.owner_type == 'transport' %> "> </i> 
-          <i class=" <%= 'icon-pub' if @barrel.owner_type == 'store' %> "> </i> 
+          <dd>
+            <% if @barrel.transport %>
+              <%= "Transporte #{@barrel.transport.number}" %>
+            <% else %>
+              <%= "#{@barrel.store.name}" %>
+            <% end %>
           </dd>
         </dl>
       </div>

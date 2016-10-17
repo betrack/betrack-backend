@@ -41,9 +41,12 @@
             <td><%= barrel.expiration_date %></td>
             <td><%= barrel.lot %></td>
             <td><%= barrel.battery_level %>%</td>
-            <td class="lead">
-              <i class=" <%= 'fa fa-truck' if barrel.owner_type == 'transport' %> "> </i> 
-              <i class=" <%= 'icon-pub' if barrel.owner_type == 'store' %> "> </i> 
+            <td>
+              <% if barrel.transport %>
+                <%= "Transporte #{barrel.transport.number}" %>
+              <% else %>
+                <%= "#{barrel.store.name}" %>
+              <% end %>
             </td>
             <td>
               <%= link_to t('.show', :default => t("buttons.show")),
