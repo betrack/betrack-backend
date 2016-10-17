@@ -12,7 +12,9 @@ class BarrelsController < ApplicationController
       if current_owner != new_owner && !new_owner.nil?
         barrel.update_attributes("#{new_owner.class.name.downcase}_id".to_sym => new_owner.id)
       end
-      barrel.barrel_statuses.build(barrel_status_params)
+      barrel_status = barrel.barrel_statuses.build(barrel_status_params)
+      barrel_status.created_by_type = new_owner.class.name
+      barrel_status.created_by_id = new_owner.id
       if barrel.save
         render :json => { :message => 'New status created successfully' }, :status => :created
       else
