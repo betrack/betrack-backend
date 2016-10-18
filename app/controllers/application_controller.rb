@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
     if owner
       if owner.class.name == 'Transport'
         owner.temperature = owner_params[:temperature]
-        owner.current_lon = owner_params[:current_lon]
-        owner.current_lat = owner_params[:current_lat]
+        owner.current_lon = owner_params[:lon]
+        owner.current_lat = owner_params[:lat]
         owner.temperature_date = owner_params[:temperature_date]
         if owner.save
           render :json => { :message => "Transport updated successfully" }, :status => :ok
