@@ -34,7 +34,11 @@
           <dd><%= @barrel.number %></dd>
           <dt><strong><%= t('models_attributes.barrel.content').capitalize %>:</strong></dt>
           <dd><%= @barrel.content %></dd>
-          <dt><strong><%= t('models_attributes.barrel.type_details').capitalize %>:</strong></dt>
+          <dt><strong><%= t('models_attributes.barrel.battery_level').capitalize %>:</strong></dt>
+          <dd><%= @barrel.battery_level.try(:floor) %>%</dd>
+          <dt><strong><%= t('models_attributes.barrel_status.state').capitalize %>:</strong></dt>
+          <dd><%= barrel_state_label @barrel.last_state %></dd>
+          <dt><strong><%= t('models_attributes.barrel.elaboration_date').capitalize %>:</strong></dt>
           <dd><%= @barrel.type_details %></dd>
           <dt><strong><%= t('models_attributes.barrel.rnpa').capitalize %>:</strong></dt>
           <dd><%= @barrel.rnpa %></dd>
@@ -65,7 +69,8 @@
         </dl>
       </div>
       <div class="col-xs-12 col-md-7 "> 
-        <%= line_chart @data, { :class => "foo", :height => 180}%>
+        <div id="data-chart" data-set="<%= @data %>" data-labels="<%= @labels %>"> </div>
+        <canvas id="temperaturesChart" height="140"> </canvas>
       </div>
 
     </div>

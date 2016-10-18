@@ -28,7 +28,7 @@
                 <dt><strong class="to"><%= t('models_attributes.barrel.number').capitalize %>:</strong></dt>
                 <dd><%= barrel.number %></dd>
                 <dt><strong class="to"><%= t('models_attributes.barrel.battery_level').capitalize %>:</strong></dt>
-                <dd><%= barrel.transport.try(:battery_level) %></dd>
+                <dd><%= barrel.battery_level.try(:floor) %>%</dd>
                 <dt><strong class="to"><%= t('models_attributes.barrel.transport').capitalize %>:</strong></dt>
                 <dd><%= barrel.transport.try(:number) %></dd>
               </dl>
