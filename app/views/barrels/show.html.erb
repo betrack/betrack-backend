@@ -62,11 +62,13 @@
           <dd><%= @barrel.comments %></dd>
           <dt><strong><%= t('models_attributes.barrel.owner').capitalize %>:</strong></dt>
           <dd>
-            <% if @barrel.transport %>
-              <%= "Transporte #{@barrel.transport.number}" %>
-            <% else %>
-              <%= "#{@barrel.store.name}" %>
-            <% end %>
+              <% if @barrel.transport %>
+                <%= "Transporte #{@barrel.transport.number}" %>
+              <% elsif @barrel.store %>
+                <%= "#{@barrel.store.name}" %>
+              <% else %>
+                  -
+              <% end %>
           </dd>
         </dl>
       </div>

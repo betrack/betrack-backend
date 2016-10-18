@@ -44,8 +44,10 @@
             <td>
               <% if barrel.transport %>
                 <%= "Transporte #{barrel.transport.number}" %>
-              <% else %>
+              <% elsif barrel.store %>
                 <%= "#{barrel.store.name}" %>
+              <% else %>
+                  -
               <% end %>
             </td>
             <td>
