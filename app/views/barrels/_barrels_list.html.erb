@@ -29,8 +29,14 @@
                 <dd><%= barrel.number %></dd>
                 <dt><strong class="to"><%= t('models_attributes.barrel.battery_level').capitalize %>:</strong></dt>
                 <dd><%= barrel.battery_level.try(:floor) %>%</dd>
-                <dt><strong class="to"><%= t('models_attributes.barrel.transport').capitalize %>:</strong></dt>
-                <dd><%= barrel.transport.try(:number) %></dd>
+                <dt><strong class="to"><%= t('models_attributes.barrel.owner').capitalize %>:</strong></dt>
+                <dd>
+                <% if barrel.transport %>
+                  <%= "Transporte #{barrel.transport.number}" %>
+                <% else %>
+                  <%= "#{barrel.store.name}" %>
+                <% end %>
+                </dd>
               </dl>
             </div>
             <div class="col-xs-12">
