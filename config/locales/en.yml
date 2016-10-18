@@ -65,7 +65,7 @@ en:
       transport: 'Transporte'
       battery_level: 'nivel de batería'
       owner: 'Lugar actual'
-      mac_adddress: 'mac address'
+      mac_address: 'mac address'
     barrel_status:
       temperature: 'temperatura'
       temperature_tstmp: 'timestamp'

@@ -47,8 +47,8 @@ class BarrelsController < ApplicationController
   def show
     @owner = @barrel.transport || @barrel.store
     @current_temperature = @barrel.last_temperature
-    @labels = @barrel.last_temperatures.map{ |k| k.temperature_tstmp.strftime("%d/%m %H:%M")}
-    @data =  @barrel.last_temperatures.map{ |k| { :y => k.temperature, :x => k.temperature_tstmp , :mac_address => k.owner_mac_address} }.to_json
+    @labels = @barrel.last_48_temperatures.map{ |k| k.temperature_tstmp.strftime("%d/%m %H:%M")}
+    @data =  @barrel.last_48_temperatures.map{ |k| { :y => k.temperature, :x => k.temperature_tstmp , :mac_address => k.owner_mac_address} }.to_json
   end
 
   # GET /barrels/new

@@ -18,11 +18,13 @@ class Barrel < ApplicationRecord
       .try(:temperature)
   end
 
-  def last_temperatures
-    self.barrel_statuses
-      .where('temperature is not null')
-      .order('temperature_tstmp asc')
-      .last(10)
+  (1..48).each do |i|
+    define_method("last_#{i}_temperatures") do
+      self.barrel_statuses
+        .where('temperature is not null')
+        .order('temperature_tstmp asc')
+        .last(i)
+    end
   end
 
   def owner_type

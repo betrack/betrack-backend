@@ -5,7 +5,7 @@ json.barrel do
 end
 
 json.barrel_statuses do
-  json.array! @barrel.last_temperatures.last(10) do |status|
+  json.array! @barrel.last_24_temperatures do |status|
     json.temperature status.temperature
     json.sent_at status.temperature_tstmp
   end
