@@ -80,6 +80,6 @@ class TransportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transport_params
-      params.require(:transport).permit(:number, :current_lat, :current_lon, :temperature, :temperature_date, :identification, :phone_number, :driver)
+      params.require(:transport).permit(:number, :current_lat, :current_lon, :temperature, :temperature_date, :identification, :phone_number, :driver, :mac_address)
     end
 end

@@ -11,6 +11,8 @@
         <dd><%= @transport.current_lat %></dd>
         <dt><strong><%= t('models_attributes.transport.current_lon').capitalize %>:</strong></dt>
         <dd><%= @transport.current_lon %></dd>
+        <dt><strong><%= t('models_attributes.transport.mac_address').capitalize %>:</strong></dt>
+        <dd><%= @transport.mac_address %></dd>
         <dt><strong><%= t('models_attributes.transport.temperature').capitalize %>:</strong></dt>
         <dd><%= @transport.temperature %></dd>
         <dt><strong><%= t('models_attributes.transport.temperature_date').capitalize %>:</strong></dt>
@@ -21,8 +23,6 @@
         <dd><%= @transport.phone_number %></dd>
         <dt><strong><%= t('models_attributes.transport.driver').capitalize %>:</strong></dt>
         <dd><%= @transport.driver %></dd>
-        <dt><strong><%= t('models_attributes.transport.mac_address').capitalize %>:</strong></dt>
-        <dd><%= @transport.mac_address %></dd>
       </dl>
 
       <%= link_to t('.back', :default => t("buttons.back")),
