@@ -40,7 +40,7 @@
           <dd><%= @barrel.battery_level.try(:floor) %>%</dd>
           <dt><strong><%= t('models_attributes.barrel_status.state').capitalize %>:</strong></dt>
           <dd><%= barrel_state_label @barrel.last_state %></dd>
-          <dt><strong><%= t('models_attributes.barrel.elaboration_date').capitalize %>:</strong></dt>
+          <dt><strong><%= t('models_attributes.barrel.type_details').capitalize %>:</strong></dt>
           <dd><%= @barrel.type_details %></dd>
           <dt><strong><%= t('models_attributes.barrel.rnpa').capitalize %>:</strong></dt>
           <dd><%= @barrel.rnpa %></dd>
