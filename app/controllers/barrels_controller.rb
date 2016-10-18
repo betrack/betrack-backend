@@ -10,7 +10,7 @@ class BarrelsController < ApplicationController
       current_owner = barrel.transport || barrel.store
       new_owner = Transport.find_by_mac_address(params[:owner_mac_address]) || Store.find_by_mac_address(params[:owner_mac_address])
       if current_owner != new_owner && !new_owner.nil?
-        barrel.update_attributes("#{new_owner.class.name.downcase}_id".to_sym => new_owner.id)
+        barrel.update_attributes("#{new_owner.class.name.downcase}_id".to_sym => new_owner.id, "#{current_owner.class.name.downcase}_id" => nil)
       end
       barrel_status = barrel.barrel_statuses.build(barrel_status_params)
       barrel_status.created_by_type = new_owner.class.name
