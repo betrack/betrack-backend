@@ -18,7 +18,7 @@ class Barrel < ApplicationRecord
       .try(:temperature)
   end
 
-  (1..98).each do |i|
+  (1..99).each do |i|
     define_method("last_#{i}_temperatures") do
       self.barrel_statuses
         .where('temperature is not null')
